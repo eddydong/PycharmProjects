@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits import mplot3d
 
 fig = plt.figure(figsize=plt.figaspect(0.6))
 grid = plt.GridSpec(2, 3, wspace=0.5, hspace=0.5)
