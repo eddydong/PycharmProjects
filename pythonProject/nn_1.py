@@ -62,7 +62,7 @@ syn1 = 2 * np.random.random((l1Nodes, l2Nodes)) - 1
 print("\n======= Neural Network with (with one hidden layers) =======")
 print("==== Network Topology ", l0Nodes, " x ", l1Nodes, " x ", l2Nodes, " ====\n")
 
-iterations = 1000
+iterations = 10000
 for j in range(iterations):
 
     l0 = X
@@ -77,12 +77,10 @@ for j in range(iterations):
     l1_error = l2_delta.dot(syn1.T)
     l1_delta = l1_error * nonlin(l1, deriv=True)
 
-    # Updating weights
-    # Default Weight assignment equation : W = W + alpha.input.error
-    Learning_Rate = 4
+    Learning_Rate = 0.1
     syn1 -= Learning_Rate * l1.T.dot(l2_delta)
     syn0 -= Learning_Rate * l0.T.dot(l1_delta)
-# === End of Training ===
+
 # print("\nOutput after training ", iterations, " iterations")
 # print(l2)
 
