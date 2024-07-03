@@ -3,14 +3,16 @@ from threading import Thread
 import time
 
 client = AzureOpenAI(
-  azure_endpoint = "https://wpptech-dalle.openai.azure.com/openai/deployments/gpt35turbo1106/chat/completions?api-version=2023-07-01-preview",
-  api_key="b0ee2656ed2841018d5842c37c9ab801",
-  api_version="2023-07-01-preview"
+    azure_endpoint="https://wpptech-dalle.openai.azure.com/",
+    azure_deployment="gpt35turbo1106",
+    api_key="b0ee2656ed2841018d5842c37c9ab801",
+    api_version="2023-07-01-preview"
 )
+client.model = "gpt35turbo1106"
 
 def gpt(s):
     res = client.chat.completions.create(
-    model="gpt-35-turbo", # model = "deployment_name".
+    model= client.model, # "gpt35turbo1106", # "gpt-35-turbo", # model = "deployment_name".
     messages=[
         #{"role": "system", "content": "You are a helpful assistant."},
         #{"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
